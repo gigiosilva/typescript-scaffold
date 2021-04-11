@@ -16,6 +16,7 @@ const dbconfig = {
 };
 
 if (process.env.NODE_ENV !== 'dev') {
+  dbconfig.entities = ['dist/models/*.{ts,js}'];
   dbconfig.ssl = true;
   dbconfig.extra = {
     ssl: {
