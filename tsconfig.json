@@ -27,6 +27,7 @@
     }
   },
   "include": [
-    "src/**/*"
-, "node_modules/requests"  ]
+    "src/**/*",
+    "node_modules/requests"
+  ]
 }

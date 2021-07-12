@@ -10,9 +10,9 @@ class UserService {
     return users;
   }
 
-  async getUser(userId: string) {
+  async getUser(idUser: string) {
     const userRepository: Repository<User> = getRepository(User);
-    const user: User = await userRepository.findOne(userId);
+    const user: User = await userRepository.findOne(idUser);
 
     return user;
   }
@@ -23,13 +23,13 @@ class UserService {
     return userRepository.save(user);
   }
 
-  async updateUser(userId: string, user: User) {
+  async updateUser(idUser: string, user: User) {
     try {
       const userRepository: Repository<User> = getRepository(User);
       user.updatedAt = dayjs().toDate();
-      await userRepository.update(userId, user);
+      await userRepository.update(idUser, user);
 
-      const updatedUser: User = await userRepository.findOne(userId);
+      const updatedUser: User = await userRepository.findOne(idUser);
 
       return updatedUser;
     } catch (error) {
@@ -38,9 +38,9 @@ class UserService {
     }
   }
 
-  async deleteUser(userId: string) {
+  async deleteUser(idUser: string) {
     const userRepository: Repository<User> = getRepository(User);
-    const deleteResult: DeleteResult = await userRepository.delete(userId);
+    const deleteResult: DeleteResult = await userRepository.delete(idUser);
 
     return deleteResult;
   }
