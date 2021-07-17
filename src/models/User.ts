@@ -20,13 +20,10 @@ export class User {
   @Column('double precision')
   height: number;
 
-  @Column('timestamp', {
-    default: 'NOW()',
-  })
+  @Column('timestamptz')
 	createdAt: Date;
 
-  @Column('timestamp', {
-    onUpdate: 'NOW()',
+  @Column('timestamptz', {
     nullable: true,
   })
 	updatedAt: Date;
